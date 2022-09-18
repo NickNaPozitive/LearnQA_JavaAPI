@@ -15,13 +15,12 @@ public class Ex_6 {
         Response response = RestAssured
                 .given()
                 .redirects()
-                .follow(false)
+                .follow(true)
                 .when()
                 .get("https://playground.learnqa.ru/api/long_redirect")
                 .andReturn();
-        response.prettyPrint();
 
-        String redirectURL = response.getHeader("Location");
+        String redirectURL = response.getHeader("X-Host");
         System.out.println(redirectURL);
     }
 }
