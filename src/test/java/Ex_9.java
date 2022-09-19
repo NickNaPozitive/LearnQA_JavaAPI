@@ -12,7 +12,6 @@ public class Ex_9 {
     @Test
     public void get_secret_password_homework() {
 
-        boolean doRequest = true;
         String urlAuth = "https://playground.learnqa.ru/ajax/api/get_secret_password_homework";
         String urlCheckCookie = "https://playground.learnqa.ru/ajax/api/check_auth_cookie";
 
