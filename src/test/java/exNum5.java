@@ -1,8 +1,15 @@
 import io.restassured.RestAssured;
+import io.restassured.mapper.ObjectMapper;
 import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import jdk.nashorn.internal.parser.JSONParser;
+import lombok.Data;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class exNum5 {
@@ -16,7 +23,13 @@ public class exNum5 {
                 .jsonPath();
         response.prettyPrint();
 
-        ArrayList<Object> data = response.get("messages");
-        System.out.println(data.get(1));
+
+
+        String  data = response.get("messages[1].message");
+
+        System.out.println(data);
+
+
+
     }
 }
