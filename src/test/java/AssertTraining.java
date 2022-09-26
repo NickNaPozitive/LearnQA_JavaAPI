@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class AssertTraining {
@@ -15,7 +16,7 @@ public class AssertTraining {
 
         String bigString = "https://playground.learnqa.ru/ajax/api/get_secret_password_homework";
 
-        assertEquals(bigString.length()<=15, "Длина строки больше 15");
+        assertTrue(bigString.length()<=15, "Длина строки больше 15");
     }
 
     @Test
@@ -23,6 +24,6 @@ public class AssertTraining {
 
         String tinyString = "https://";
 
-        assertEquals(tinyString.length()>=15, "Длина строки меньше 15");
+        assertTrue(tinyString.length()<=15, "Длина строки меньше 15");
     }
 }
