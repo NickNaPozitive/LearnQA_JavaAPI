@@ -29,9 +29,9 @@ public class ex13 extends BaseTestCase {
     }, delimiter = '`')
     public void testUserAgent(String userAgent, String plat, String brows, String dev) {
         JsonPath response = getJsonPathWithUserAgent(url, userAgent);
-        assertEquals(plat, response.get(platform));
-        assertEquals(brows, response.get(browser));
-        assertEquals(dev, response.get(device));
+        assertEquals(plat, response.get(platform), "Неверные данные " + response.get(platform) + " ожтдалось " + plat);
+        assertEquals(brows, response.get(browser), "Неверные данные " + response.get(browser) + " ожтдалось " + brows);
+        assertEquals(dev, response.get(device), "Неверные данные " + response.get(device) + " ожтдалось " + dev);
         response.prettyPrint();
     }
 }
