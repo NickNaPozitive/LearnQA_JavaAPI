@@ -9,13 +9,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class ex11 extends BaseTestCase {
-    String url = "https://playground.learnqa.ru/api/homework_cookie";
+    String url = "https://playground.learnqa.ru/api/homework_cookie2";
 
     @Test
     public void goodTestHeader() {
         Response response = RestAssured
                 .get(url)
                 .andReturn();
+        assertFalse(response.getCookies().isEmpty(), "Куки пусты");
         Map<String, String> cookies = response.getCookies();
 
         System.out.println(response.getCookies());
