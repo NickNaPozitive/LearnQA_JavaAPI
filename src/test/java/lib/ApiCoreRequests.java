@@ -58,7 +58,6 @@ public class ApiCoreRequests {
     }
 
 
-
     @Step("Make a PUT-request")
     public Response makePutRequest(String urlPlusUserId, Map<String, String> editData, String header, String cookie) {
         return given()
