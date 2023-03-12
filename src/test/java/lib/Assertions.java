@@ -56,4 +56,8 @@ public class Assertions {
             Assertions.assertJsonHasNotField(response, expectedFieldName);
         }
     }
+
+    public static void assertNotJsonByName(Response response, String name, String expectedValue) {
+        response.then().assertThat().body("$", hasKey(name));
+    }
 }
