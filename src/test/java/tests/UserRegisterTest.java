@@ -1,6 +1,9 @@
 package tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import lib.ApiCoreRequests;
@@ -22,6 +25,8 @@ public class UserRegisterTest extends BaseTestCase {
     private final String userUrl = "https://playground.learnqa.ru/api/user/";
 
     @Test
+    @Owner(value = "Дегтярёв Никита Витальевич")
+    @Severity(value = SeverityLevel.BLOCKER)
     @Description("Test create user and checks if`s already exists")
     @DisplayName("Negative test for creating a profile")
     public void testCreateUserWithExistingEmail() {
@@ -42,6 +47,7 @@ public class UserRegisterTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value = "Дегтярёв Никита Витальевич")
     @Description("Test create user and checks if`s succeed")
     @DisplayName("Positive test for creating a profile")
     public void testCreateUserSuccessfully() {
@@ -59,6 +65,8 @@ public class UserRegisterTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value = "Дегтярёв Никита Витальевич")
+    @Severity(value = SeverityLevel.BLOCKER)
     @Description("Test create user with invalid email")
     @DisplayName("Positive test for creating a profile with invalid email")
     public void testCreateUserWithWrongEmail() {
@@ -79,15 +87,17 @@ public class UserRegisterTest extends BaseTestCase {
     }
 
     @ParameterizedTest
+    @Owner(value = "Дегтярёв Никита Витальевич")
+    @Severity(value = SeverityLevel.BLOCKER)
+    @Description("This test creates an account without one of the parameters and if the test " +
+            "passes without assert - registration is impossible without one of the parameters")
+    @DisplayName("Test for creating a profile without some parameter or parameters")
     @CsvSource(value = {
             " :MaxPayne:Max:Payne",
             "312123: :Mass:Effect",
             "999999:JoSh: :Shepard",
             "33333:ResidentEvil:Leon: "
     }, delimiter = ':')
-    @Description("This test creates an account without one of the parameters and if the test " +
-            "passes without assert - registration is impossible without one of the parameters")
-    @DisplayName("Test for creating a profile without some parameter or parameters")
     public void testCreateUserWithoutSomeParameters(String password, String userName, String firstName, String lastName) {
         String email = DataGenerator.getRandomEmail();
 
@@ -104,6 +114,8 @@ public class UserRegisterTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value = "Дегтярёв Никита Витальевич")
+    @Severity(value = SeverityLevel.BLOCKER)
     @Description("This test tries to create a new user with one symbol userName")
     @DisplayName("Test negative create user with one symbol userName")
     public void testCreateUserWithOneSymbolUserName() {
@@ -120,6 +132,8 @@ public class UserRegisterTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value = "Дегтярёв Никита Витальевич")
+    @Severity(value = SeverityLevel.BLOCKER)
     @Description("This test tries to create a new user with 251 symbol userName")
     @DisplayName("Test negative create user with 251 symbol userName")
     public void testCreateUserWithLongUserName251Characters() {

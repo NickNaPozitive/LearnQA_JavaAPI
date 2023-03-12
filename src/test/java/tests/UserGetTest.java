@@ -1,5 +1,8 @@
 package tests;
 
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import io.restassured.RestAssured;
 import io.restassured.http.Cookies;
 import io.restassured.path.json.JsonPath;
@@ -30,6 +33,8 @@ public class UserGetTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value = "Дегтярёв Никита Витальевич")
+    @Severity(value = SeverityLevel.TRIVIAL)
     public void testGetUserDetailsAuthAsSameUser() {
         Map<String, String> authData = new HashMap<>();
         authData.put("email", "vinkotov@example.com");
@@ -56,6 +61,8 @@ public class UserGetTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value = "Дегтярёв Никита Витальевич")
+    @Severity(value = SeverityLevel.TRIVIAL)
     @Description("This test tries to get user's info with auth as another user")
     @DisplayName("Test positive get user's info with auth as another user")
     public void testGetUserDetailsAuthAsAnotherUser() {

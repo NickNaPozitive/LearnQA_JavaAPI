@@ -1,8 +1,6 @@
 package tests;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import lib.ApiCoreRequests;
@@ -24,6 +22,8 @@ public class UserDeleteTest {
     private final ApiCoreRequests apiCoreRequests = new ApiCoreRequests();
 
     @Test
+    @Owner(value = "Дегтярёв Никита Витальевич")
+    @Severity(value = SeverityLevel.CRITICAL)
     @Description("This test tries to delete user, who can't be deleted")
     @DisplayName("Test negative delete user, who can't be deleted")
     public void testDeleteUserWithUserId2() {
@@ -44,6 +44,8 @@ public class UserDeleteTest {
     }
 
     @Test
+    @Owner(value = "Дегтярёв Никита Витальевич")
+    @Severity(value = SeverityLevel.CRITICAL)
     @Description("This test tries to delete just created user")
     @DisplayName("Test positive delete just created user")
     public void testDeleteJustCreatedUser() {
@@ -74,6 +76,8 @@ public class UserDeleteTest {
     }
 
     @Test
+    @Owner(value = "Дегтярёв Никита Витальевич")
+    @Severity(value = SeverityLevel.CRITICAL)
     @Description("This test tries to delete user with another user authorization")
     @DisplayName("Test positive delete user with another user's authorization")
     public void testDeleteUserWithAnotherUserAuth() {

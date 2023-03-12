@@ -3,6 +3,7 @@ package tests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import lib.ApiCoreRequests;
@@ -26,6 +27,7 @@ public class UserEditTest extends BaseTestCase {
 
 
     @Test
+    @Owner(value = "Дегтярёв Никита Витальевич")
     @Description("This test tries to edit just created user")
     @DisplayName("Test positive edit user")
     public void testEditJustCreated() {
@@ -63,6 +65,7 @@ public class UserEditTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value = "Дегтярёв Никита Витальевич")
     @Description("This test tries to edit a user with no authorization")
     @DisplayName("Test negative edit user unauthorized")
     public void testEditUserNotAuth() {
@@ -98,6 +101,7 @@ public class UserEditTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value = "Дегтярёв Никита Витальевич")
     @Description("This test tries to edit a user with another user authorization")
     @DisplayName("Test negative edit one user with another user's authorization")
     public void testEditUserWithAnotherAuth() {
@@ -142,6 +146,7 @@ public class UserEditTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value = "Дегтярёв Никита Витальевич")
     @Description("This test tries to edit email just created user with a not valid email value")
     @DisplayName("Test negative edit user with invalid email")
     public void testEditJustCreatedUserWithInvalidEmail() {
@@ -179,6 +184,7 @@ public class UserEditTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value = "Дегтярёв Никита Витальевич")
     @Description("This test tries to edit userName just created user with a not valid value")
     @DisplayName("Test negative edit userName with one symbol name")
     public void testEditJustCreatedUserWithOneSymbolUserName() {

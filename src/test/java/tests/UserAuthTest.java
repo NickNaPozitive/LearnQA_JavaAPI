@@ -1,9 +1,7 @@
 package tests;
 
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.http.Headers;
 import io.restassured.path.json.JsonPath;
@@ -49,6 +47,8 @@ public class UserAuthTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value = "Дегтярёв Никита Витальевич")
+    @Severity(value = SeverityLevel.MINOR)
     @Description("This test successfully authorize user by email and password")
     @DisplayName("Test positive auth user")
     public void testAuthUser() {
@@ -58,9 +58,11 @@ public class UserAuthTest extends BaseTestCase {
         Assertions.assertJsonByName(responseCheckAuth, "user_id", userIdOnAuth);
     }
 
+    @ParameterizedTest
+    @Owner(value = "Дегтярёв Никита Витальевич")
+    @Severity(value = SeverityLevel.MINOR)
     @Description("This test checks authorization status w/o sending auth cookie or token")
     @DisplayName("Test negative auth user")
-    @ParameterizedTest
     @ValueSource(strings = {"cookie", "headers"})
     public void testNegativeAuthUser(String condition) {
         Map<String, String> authData = new HashMap<>();
