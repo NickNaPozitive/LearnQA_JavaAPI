@@ -2,7 +2,9 @@ package lib;
 
 import io.qameta.allure.Step;
 import io.qameta.allure.restassured.AllureRestAssured;
+import io.restassured.http.Cookies;
 import io.restassured.http.Header;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 import java.util.Map;
@@ -14,7 +16,7 @@ public class ApiCoreRequests {
     public Response makeGetRequest(String url, String token, String cookie) {
         return given()
                 .filter(new AllureRestAssured())
-                .header(new Header("x-csrf-token", token))
+                .header("x-csrf-token", token)
                 .cookie("auth_sid", cookie)
                 .get(url)
                 .andReturn();
@@ -54,6 +56,8 @@ public class ApiCoreRequests {
                 .post(url)
                 .andReturn();
     }
+
+
 
     @Step("Make a PUT-request")
     public Response makePutRequest(String urlPlusUserId, Map<String, String> editData, String header, String cookie) {

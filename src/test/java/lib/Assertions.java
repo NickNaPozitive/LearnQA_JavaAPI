@@ -47,17 +47,13 @@ public class Assertions {
         }
     }
 
-    public static void assertJsonHasValue(Response Response, String expectedFieldValue) {
-        Response.then().assertThat().body(expectedFieldValue, hasKey(expectedFieldValue));
-    }
-
-    public static void assertJsonHasValues(Response Response, String[] expectedFieldValues) {
-        for (String expectedFieldValue : expectedFieldValues) {
-            Assertions.assertJsonHasField(Response, expectedFieldValue);
-        }
-    }
-
     public static void assertJsonHasNotField(Response Response, String unexpectedFieldName) {
         Response.then().assertThat().body("$", not(hasKey(unexpectedFieldName)));
+    }
+
+    public static void assertJsonHasNotFields(Response response, String[] expectedFieldNames) {
+        for (String expectedFieldName : expectedFieldNames) {
+            Assertions.assertJsonHasNotField(response, expectedFieldName);
+        }
     }
 }
